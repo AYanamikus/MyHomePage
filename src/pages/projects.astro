@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+const projects = [
+  { title: 'Private Homepage Foundation', summary: 'Modern Astro and Tailwind setup with pnpm scripts and a clean component model.', tags: ['Astro', 'pnpm', 'Tailwind'] },
+  { title: 'Access-Gated Preview', summary: 'Client-side preview code flow for non-sensitive draft content and stakeholder review.', tags: ['AccessGate', 'UX'] },
+  { title: 'Search Blocking Defaults', summary: 'Robots meta tags and robots.txt configured to discourage indexing during private preview.', tags: ['Privacy', 'SEO'] }
+];
+---
+<BaseLayout title="Projects | MyHomePage">
+  <h1 class="text-4xl font-black text-slate-950">Projects</h1>
+  <p class="mt-4 max-w-3xl text-lg text-slate-600">Selected work areas for this homepage rebuild.</p>
+  <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {projects.map((project) => <ProjectCard {...project} />)}
+  </div>
+</BaseLayout>

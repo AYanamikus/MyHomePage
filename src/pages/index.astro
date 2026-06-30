@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import AccessGate from '../components/AccessGate.astro';
+---
+<BaseLayout title="Home | MyHomePage">
+  <section class="grid gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-[0.3em] text-brand">Private portfolio</p>
+      <h1 class="mt-4 text-4xl font-black tracking-tight text-slate-950 sm:text-6xl">A focused home for projects, case studies, and documents.</h1>
+      <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">This integrated version establishes the Astro + Tailwind + pnpm foundation, reusable components, private preview controls, and search-engine blocking required for a safe early-stage homepage.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a class="rounded-xl bg-brand px-5 py-3 font-semibold text-white hover:bg-blue-700" href="/projects">Explore projects</a>
+        <a class="rounded-xl border border-slate-300 px-5 py-3 font-semibold text-slate-700 hover:bg-white" href="/contact">Contact</a>
+      </div>
+    </div>
+    <AccessGate>
+      <p>Protected preview notes are unlocked locally in this browser. Keep truly confidential assets outside the static public directory.</p>
+    </AccessGate>
+  </section>
+  <section class="mt-14 grid gap-6 md:grid-cols-3">
+    <ProjectCard title="Portfolio System" summary="Astro page structure with reusable cards, navigation, and privacy defaults." tags={["Astro", "Tailwind"]} href="/projects" />
+    <ProjectCard title="Case Study Library" summary="A clear place to summarize outcomes without exposing sensitive source files." tags={["Writing", "UX"]} href="/case-studies" />
+    <ProjectCard title="Document Hub" summary="A lightweight index for shareable documents and safe placeholders." tags={["Docs", "Preview"]} href="/documents" />
+  </section>
+</BaseLayout>
