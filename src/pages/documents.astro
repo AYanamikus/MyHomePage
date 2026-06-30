@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AccessGate from '../components/AccessGate.astro';
+---
+<BaseLayout title="Documents | MyHomePage">
+  <h1 class="text-4xl font-black text-slate-950">Documents</h1>
+  <p class="mt-4 max-w-3xl text-lg text-slate-600">Use this page as an index for safe, shareable document summaries. Do not place sensitive PDFs, Word files, Excel sheets, or full videos in <code>public/</code>.</p>
+  <div class="mt-8 grid gap-6 lg:grid-cols-2">
+    <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-2xl font-bold text-slate-950">Public-safe placeholders</h2>
+      <p class="mt-3 text-slate-600">Add document titles, descriptions, owners, and external secure links only when approved.</p>
+    </article>
+    <AccessGate>
+      <p>Unlocked reviewers can see draft document notes here, but static confidential files should remain outside this repository.</p>
+    </AccessGate>
+  </div>
+</BaseLayout>
