@@ -3,8 +3,7 @@ import '../styles.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import NoticeBanner from '../components/NoticeBanner.astro';
-
-const { title = 'Private Portfolio', description = 'A lightweight private portfolio and document hub.' } = Astro.props;
+const { title = 'Combat Design Portfolio', description = 'Private-preview portfolio for game combat design and technical design recruitment evaluation.' } = Astro.props;
 ---
 <!doctype html>
 <html lang="zh-CN">
@@ -15,7 +14,7 @@ const { title = 'Private Portfolio', description = 'A lightweight private portfo
     <meta name="robots" content="noindex, nofollow, noarchive" />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen">
+  <body class="min-h-screen bg-slate-50 text-slate-900 antialiased">
     <NoticeBanner />
     <Navbar />
     <main class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">

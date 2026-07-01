@@ -1,18 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { projects } from '../data/projects';
 ---
-<BaseLayout title="Case Studies | MyHomePage">
+<BaseLayout title="Case Studies | Combat Design Portfolio">
   <h1 class="text-4xl font-black text-slate-950">Case Studies</h1>
+  <p class="mt-4 max-w-3xl text-lg text-slate-600">案例入口页。完整拆解仅在输入访问码后显示，避免公开暴露未发布材料。</p>
   <div class="mt-8 grid gap-6">
-    <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-      <p class="text-sm font-semibold uppercase tracking-wide text-brand">Case Study 01</p>
-      <h2 class="mt-2 text-2xl font-bold text-slate-950">From task list to integrated site foundation</h2>
-      <p class="mt-3 text-slate-600">Consolidated the rebuild, page architecture, reusable components, access gate, and privacy requirements into one deployable pull request.</p>
-    </article>
-    <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-      <p class="text-sm font-semibold uppercase tracking-wide text-brand">Case Study 02</p>
-      <h2 class="mt-2 text-2xl font-bold text-slate-950">Safe document preview strategy</h2>
-      <p class="mt-3 text-slate-600">Documents are represented as metadata and placeholders. Sensitive files should remain in controlled storage, not in the static public folder.</p>
-    </article>
+    {projects.slice(0, 4).map((project) => (
+      <article class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+        <p class="text-sm font-semibold uppercase tracking-wide text-blue-700">Restricted Case Study</p>
+        <h2 class="mt-2 text-2xl font-bold text-slate-950">{project.title}</h2>
+        <p class="mt-3 text-slate-600">{project.shortSummary}</p>
+        <a class="mt-5 inline-flex rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700" href={project.restrictedCaseStudyLink}>Open case study</a>
+      </article>
+    ))}
   </div>
 </BaseLayout>

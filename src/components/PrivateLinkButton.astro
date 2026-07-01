@@ -1,0 +1,7 @@
+---
+const { href = '#', label = 'Private link placeholder', note = 'Replace with an external private or signed URL.' } = Astro.props;
+---
+<a class="inline-flex flex-col rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm shadow-sm transition hover:border-blue-300 hover:bg-blue-50" href={href} aria-label={label}>
+  <span class="font-semibold text-slate-950">{label}</span>
+  <span class="mt-1 text-xs text-slate-500">{note}</span>
+</a>
