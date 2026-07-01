@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AccessGate from '../../components/AccessGate.astro';
+import CaseStudySection from '../../components/CaseStudySection.astro';
+import PrivateLinkButton from '../../components/PrivateLinkButton.astro';
+import { projects } from '../../data/projects';
+const project = projects[0];
+---
+<BaseLayout title={`${project.title} | Case Study`}>
+  <section class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+    <p class="text-sm font-bold uppercase tracking-[0.3em] text-blue-700">Restricted Case Study</p>
+    <h1 class="mt-3 text-4xl font-black text-slate-950">{project.title}</h1>
+    <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-600">{project.shortSummary}</p>
+    <dl class="mt-6 grid gap-4 sm:grid-cols-2">
+      <div class="rounded-2xl bg-slate-50 p-4"><dt class="font-semibold text-slate-950">My Role</dt><dd class="mt-1 text-slate-600">{project.role}</dd></div>
+      <div class="rounded-2xl bg-slate-50 p-4"><dt class="font-semibold text-slate-950">Tools</dt><dd class="mt-1 text-slate-600">{project.tools.join(' · ')}</dd></div>
+    </dl>
+  </section>
+  <div class="mt-8">
+    <AccessGate>
+      <div class="grid gap-5">
+        <CaseStudySection id="overview" title="1. Overview"><p>这是一个可替换的 UE5 Action RPG 战斗原型案例模板，用于展示从战斗目标、核心循环、状态规则到反馈迭代的设计思路。文案避免使用公司机密、真实未公开数值或不可验证成果。</p></CaseStudySection>
+        <CaseStudySection id="design-goal" title="2. Design Goal"><p>目标是建立一个 HR 能快速理解、面试官能继续追问的战斗样例：基础攻击建立资源，技能制造战术窗口，变身与空战提供节奏变化，敌人压力由攻击槽系统控制。</p></CaseStudySection>
+        <CaseStudySection id="my-role" title="3. My Role"><p>负责战斗规则拆解、原型逻辑设计、状态图与表格维护、反馈清单整理，以及把可演示内容转换成面试安全的案例表达。</p></CaseStudySection>
+        <CaseStudySection id="tools" title="4. Tools"><p>使用 Unreal Engine 5、Blueprint、Behavior Tree、Enhanced Input、Spreadsheet 和设计文档模板。所有私有素材链接均保留为占位符。</p></CaseStudySection>
+        <CaseStudySection id="core-combat-loop" title="5. Core Combat Loop"><p>核心循环为接近目标、确认敌人意图、执行连段或闪避、积累可引爆资源、选择普通输出或爆发窗口，并通过敌人反击迫使玩家重新评估站位。</p></CaseStudySection>
+        <CaseStudySection id="stack-and-detonation-system" title="6. Stack and Detonation System"><p>堆叠系统用于把连续命中、精准时机或特定技能转化为可见资源。引爆不只追求伤害，也可触发硬直、破防或连段延伸，以增加决策层次。</p></CaseStudySection>
+        <CaseStudySection id="e-mode-transformation" title="7. E-Mode Transformation"><p>E-Mode 作为短时强化状态，强调进入时机和退出成本。设计重点包括变身触发条件、持续时间、技能替换、视觉提示和冷却后的低谷管理。</p></CaseStudySection>
+        <CaseStudySection id="aerial-combat-flow" title="8. Aerial Combat Flow"><p>空战流程围绕 Launch、Chase、Air Combo、Slam 四个阶段组织，确保镜头、锁定和落地恢复保持稳定，避免玩家因表现效果失去空间判断。</p></CaseStudySection>
+        <CaseStudySection id="enemy-and-boss-behavior" title="9. Enemy and Boss Behavior"><p>敌人与 Boss 使用攻击槽思路控制同时进攻数量。槽位根据距离、冷却、威胁等级和当前动画状态分配，降低混乱围殴并保留压迫感。</p></CaseStudySection>
+        <CaseStudySection id="combat-feedback" title="10. Combat Feedback"><p>反馈层级包括命中特效、音效、镜头轻微反馈、受击停顿、UI 标记和敌人动作反应。每个反馈都服务于可读性，而不是单纯堆叠视觉强度。</p></CaseStudySection>
+        <CaseStudySection id="problems-and-iteration" title="11. Problems and Iteration"><p>迭代关注三类问题：玩家不理解资源何时有价值、变身爆发窗口过长导致节奏单一、敌人并发攻击过多造成误读。对应方案是强化 UI 提示、缩短窗口并调整攻击槽权重。</p></CaseStudySection>
+        <CaseStudySection id="private-video-links" title="12. Private Video Links"><div class="flex flex-wrap gap-3"><PrivateLinkButton href="PRIVATE_VIDEO_URL" label="PRIVATE_VIDEO_URL" /></div></CaseStudySection>
+        <CaseStudySection id="private-document-links" title="13. Private Document Links"><div class="flex flex-wrap gap-3"><PrivateLinkButton href="PRIVATE_DOCUMENT_URL" label="PRIVATE_DOCUMENT_URL" /><PrivateLinkButton href="PRIVATE_DOCUMENT_URL" label="PRIVATE_SPREADSHEET_URL" /></div></CaseStudySection>
+      </div>
+    </AccessGate>
+  </div>
+</BaseLayout>

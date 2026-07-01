@@ -4,5 +4,5 @@
 
 :root { color-scheme: light; }
 html { scroll-behavior: smooth; }
-body { @apply bg-mist text-ink antialiased; }
-.prose-lite p { @apply leading-7 text-slate-600; }
+body { text-rendering: optimizeLegibility; }
+.text-slate-650 { color: rgb(71 85 105); }
